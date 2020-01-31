@@ -1,0 +1,598 @@
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+select {
+  margin-left: 20px;
+  font-size: 1.2em;
+  border: 1px solid lightgray;
+  background: white;
+  color: gray;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + p {
+  color: #ccc;
+}
+input[type="checkbox"]:checked + .filter-item-wrapper {
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+input:focus {
+  outline: lightgrey;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(50, 50, 50, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
+
+.gm-svpc {
+  display: none;
+}
+
+.gm-control-active.gm-fullscreen-control {
+  display: none;
+}
+
+.dark-theme {
+  background-color: rgba(50, 50, 50, 0.9);
+}
+.gmnoprint {
+  display: none;
+}
+
+.gm-style-mtc {
+  display: none;
+}
+
+#page-wrapper {
+  width: 100%;
+  background-color: #e2e2e2;
+}
+
+#header-wrapper {
+  padding: 20px;
+  top: 100px;
+}
+
+.side-slide {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  z-index: 6;
+  width: 100%;
+  align-items: center;
+  right: -40px;
+  transition: all 0.5s linear;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+  border-radius: 2px;
+  background-color: rgba(50, 50, 50, 0.9);
+}
+
+.top-hide {
+  top: -500px !important;
+}
+
+.show-loading {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(150, 150, 150, 0.95);
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.show-loading svg {
+  animation-duration: 1s;
+}
+
+.hide-loading {
+  display: none;
+}
+
+.filter-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: grey;
+  cursor: pointer;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gray;
+}
+
+.errors {
+  display: flex;
+  justify-content: center;
+}
+
+.top-slide {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 11;
+  overflow-x: hidden;
+  left: 70%;
+  min-width: 210px;
+  padding: 0px 20px 0px 20px;
+  max-height: 500px;
+  overflow-y: scroll;
+  align-items: center;
+  top: 50px;
+  transition: all 0.5s linear;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+  border-radius: 2px;
+  background-color: rgba(50, 50, 50, 0.9);
+}
+
+.side-hide {
+  right: -97.5% !important;
+}
+
+.header-active span {
+  color: white;
+  font-size: 1.2em;
+}
+
+.filter-stub {
+  width: 210px;
+  padding: 0px 20px 0px 20px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 70%;
+  background-color: rgba(50, 50, 50, 0.9);
+  z-index: 20;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+  border-radius: 2px;
+  cursor: pointer;
+  color: white;
+}
+
+.filter-stub svg {
+  display: none;
+}
+
+.total-crimes {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(50, 50, 50, 0.9);
+  color: white;
+  padding: 5px;
+}
+
+.no-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0);
+  width: 100%;
+}
+
+.crime-stats p {
+  padding: 5px;
+  margin: 5px;
+  color: white;
+}
+
+.errors-wrapper {
+  position: absolute;
+  top: 80%;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  color: indianred;
+  background-color: lightgray;
+  padding: 20px;
+  width: 100%;
+}
+
+.errors-wrapper p {
+  padding: 10px;
+  margin: 0px;
+}
+
+.results-table {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 30%;
+  position: absolute;
+  top: 69.9%;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid dimgray;
+  z-index: 10;
+  background-color: rgba(50, 50, 50, 0.9);
+}
+
+.result-category {
+  min-width: 200px;
+}
+
+.result-location {
+  width: 200px;
+}
+
+.result-index {
+  min-width: 40px;
+}
+
+.result-outcome {
+  width: 200px;
+}
+
+.header-stub {
+  cursor: pointer;
+  align-self: flex-end;
+  border-right: 1px solid lightgray;
+  padding: 25px 25px 25px 0px;
+  margin: 5px 0px 5px 5px;
+  color: white;
+}
+
+.header-stub svg {
+  display: none;
+}
+
+::-webkit-input-placeholder {
+  color: dimgray;
+}
+
+::-moz-placeholder {
+  color: dimgray;
+}
+
+::-ms-placeholder {
+  color: dimgray;
+}
+
+.header-active input:placeholder {
+  color: dimgray;
+}
+
+.header-active {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 95%;
+}
+
+.header-active input {
+  text-align: center;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid lightgray;
+  height: 25px;
+  margin-right: 20px;
+  color: gray;
+  font-size: 1em;
+}
+
+.category-count {
+  margin: 1px;
+  font-size: 0.7em;
+}
+
+.start-menu-inputs {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid lightgray;
+  margin-top: 15px;
+}
+
+.submit-button button {
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  color: gray;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 20px;
+  width: 200px;
+  background-color: white;
+}
+
+.category-percentage {
+  font-size: 0.7em;
+  margin: 2px;
+}
+
+.map {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+}
+
+.filters {
+  margin-bottom: 10px;
+}
+
+.filter-container {
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid lightgray;
+  flex-basis: 50%;
+  font-size: 0.7em;
+  padding: 15px 0px 5px 0px;
+}
+.stat-row span {
+  padding: 5px;
+  color: white;
+}
+
+.header-active input::placeholder {
+  color: lightgray;
+  font-size: 1.2em;
+}
+
+@media only screen and (max-width: 1285px) {
+  .stat-row {
+    flex-basis: 100%;
+  }
+  .side-hide {
+    right: -97%!important;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .top-slide {
+    left: 65%;
+  }
+  .filter-stub {
+    left: 65%;
+  }
+}
+@media only screen and (max-width: 1025px) {
+  .stat-row {
+    font-size: 0.8em;
+  }
+
+  .results-table {
+    max-height: none;
+  }
+
+  .side-hide {
+    right: -98% !important;
+  }
+
+  select {
+    margin-right: 20px;
+  }
+  .header-stub svg {
+    display: block;
+    padding-bottom: 5px;
+  }
+
+  .filter-stub svg {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .header-stub p,
+  .filter-stub p {
+    display: none;
+  }
+
+  .total-crimes {
+    font-size: 0.7em;
+  }
+
+  .top-slide {
+    width: 130px;
+    min-width: unset;
+    left: 70%;
+    font-size: 0.7em;
+    top: 35px;
+  }
+
+  .header-stub {
+    color: lightgray;
+    padding-top: 50px;
+    padding-bottom: 40px;
+  }
+
+  .filter-stub {
+    width: 150px;
+    left: 70%;
+    padding: 10px;
+    margin: 0 auto;
+    color: lightgray;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .errors-wrapper h3 {
+    padding: 10px;
+  }
+  .errors-wrapper {
+    top: 50%;
+    padding: 0;
+  }
+
+  .filter-stub,
+  .top-slide {
+    left: 60%;
+  }
+
+  .top-slide {
+    top: 35px;
+  }
+
+  .header-active input,
+  .header-active select,
+  .header-active span {
+    font-size: 1em;
+  }
+
+  #header-wrapper {
+    padding: 10px;
+  }
+
+  .side-hide {
+    right: -96% !important;
+  }
+
+  .start-menu-inputs {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .submit-button button {
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    color: gray;
+    cursor: pointer;
+    font-size: 0.8em;
+    margin-top: 0px;
+    width: 150px;
+    background-color: white;
+  }
+  .date-month,
+  .date-year {
+    align-self: center;
+  }
+
+  #header-wrapper {
+    top: 70px;
+  }
+
+  .map {
+    height: 50%;
+  }
+
+  .header-active input {
+    margin-right: 5px;
+  }
+
+  input {
+    margin: 5px;
+  }
+
+  select {
+    margin: 5px;
+    align-self: center;
+  }
+
+  .results-table {
+    top: 49%;
+    height: 50%;
+  }
+
+  .no-results {
+    align-items: flex-start;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .total-crimes {
+    display: none;
+  }
+
+  .header-active {
+    align-items: center;
+    flex-basis: unset;
+  }
+
+  .side-slide {
+    right: -40%;
+  }
+
+  .side-hide {
+    right: -95% !important;
+  }
+  .submit-button {
+    border: none;
+  }
+
+  .header-stub {
+    margin-bottom: 35px;
+    border: none;
+    padding-top: 0px;
+    padding-bottom: 30px;
+  }
+
+  .start-menu-inputs {
+    flex-direction: column;
+  }
+
+  .filter-stub,
+  .top-slide {
+    left: 25%;
+  }
+
+  .stat-row {
+    justify-content: flex-start;
+  }
+
+  .stat-row span {
+    width: auto;
+  }
+
+  .result-category {
+    min-width: unset;
+  }
+
+  .result-location {
+    width: unset;
+  }
+
+  .result-index {
+    min-width: unset;
+  }
+
+  .result-outcome {
+    width: unset;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .side-hide {
+    right: -94% !important;
+  }
+
+  .side-slide {
+    right: -20%;
+  }
+
+  #header-wrapper {
+    top: 50px;
+  }
+}
