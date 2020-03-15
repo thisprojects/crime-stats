@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { generateYears } from "../js-functions/js-functions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -14,12 +14,16 @@ export function Slider(props) {
   );
 }
 
-export function PostCode(props) {
+export class PostCode extends Component {
+  
+  locationInputText = React.createRef();
+
+  render () {
   return (
     <div className="postcode-picker">
-      <input id="post-code" type="text" placeholder="Location" />
+      <input id="post-code" type="text" placeholder="Location" ref={ this.locationInputText } />
     </div>
-  );
+  )};
 }
 
 export function SubmitButton(props) {
