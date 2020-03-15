@@ -15,13 +15,15 @@ export function Loading(props) {
   );
 }
 
-export function Errors(props) {
-  return (
-    <div style={!props.errors ? { display: "none" } : {}}>
-      <h3>{props.errors}</h3>
+export const Errors = ({ errors }) =>
+  errors && (
+    <div className="errors-wrapper">
+      <p>
+        Whoops! Something went wrong. Only UK locations are supported. If this
+        problem persists please try again later.
+      </p>
     </div>
   );
-}
 
 export function Filters(props) {
   if (props.filterState) {

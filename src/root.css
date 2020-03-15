@@ -202,7 +202,7 @@ input:focus {
 
 .errors-wrapper {
   position: absolute;
-  top: 80%;
+  top: 40%;
   z-index: 20;
   display: flex;
   justify-content: center;

@@ -5,16 +5,9 @@ import {
   Errors,
   Loading
 } from "./main-components/filters-errors-loading-components";
+import { Year, Month, Slider } from "./main-components/start-menu-components";
 import {
-  PostCode,
-  Year,
-  Month,
-  Slider,
-  SubmitButton
-} from "./main-components/start-menu-components";
-import {
-  postCodeApiCall,
-  policeApiCall,
+  getData,
   makeFilterStates,
   resetFilters,
   filterResults,
@@ -28,28 +21,17 @@ import { faPlayCircle } from "@fortawesome/free-solid-svg-icons";
 import icon from "./pointer.png";
 
 export class CrimeApp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      lat: 1,
-      lng: 52,
-      crimeResults: [],
-      filteredResults: [],
-      filterState: {},
-      errorState: null,
-      loadingState: null
-    };
-  }
-
-  setResults = (results, errors, loading) => {
-    this.setState({
-      crimeResults: results,
-      filteredResults: results,
-      filterState: makeFilterStates(results),
-      errorState: errors || null,
-      loadingState: loading || null
-    });
+  state = {
+    lat: 1,
+    lng: 52,
+    crimeResults: [],
+    filteredResults: [],
+    filterState: {},
+    errorState: null,
+    loadingState: null
   };
+
+  locationInputText = React.createRef();
 
   setFilterListeners() {
     let x = document.querySelectorAll(".filter-container input");
@@ -72,19 +54,6 @@ export class CrimeApp extends Component {
     }
   }
 
-  async callCrimeApi(locationSetByDrag) {
-    let results = await policeApiCall(this.state.lat, this.state.lng);
-
-    //If a results array is returned, display the results. If not, display errors.
-    Array.isArray(results)
-      ? this.setResults(results, null, false)
-      : this.setResults([], results, false);
-    resetFilters();
-    this.setFilterListeners();
-    if (!locationSetByDrag)
-      this.showAndHideSliders("#header-wrapper", "side-hide");
-  }
-
   applyFilters() {
     this.setState({
       filteredResults: filterResults(
@@ -95,12 +64,10 @@ export class CrimeApp extends Component {
   }
 
   onMarkerDragEnd(evt) {
-    this.setState({
-      lat: evt.latLng.lat(),
-      lng: evt.latLng.lng(),
-      loadingState: true
-    });
-    this.callCrimeApi(true);
+    const dragLat = evt.latLng.lat();
+    const dragLng = evt.latLng.lng();
+    const locationSetByDrag = true;
+    this.submitButton({ locationSetByDrag, dragLat, dragLng });
   }
 
   showAndHideSliders = (selector, slideClass) => {
@@ -120,23 +87,29 @@ export class CrimeApp extends Component {
     });
   };
 
+  submitButton = async ({ locationSetByDrag, dragLat, dragLng } = {}) => {
+    const location = locationSetByDrag
+      ? `${dragLat} ${dragLng}`
+      : this.locationInputText.current.value;
+    this.setState({ loadingState: true, errorState: false });
+    let x = await getData(location).catch( () => this.setState({ errorState: true }))
+    const { lat, lng, results = {} } = x || {}
+    if (!this.state.errorState) {
+      this.setState({
+        lat: lat,
+        lng: lng,
+        crimeResults: results,
+        filteredResults: results,
+        filterState: makeFilterStates(results),
+      });
+      resetFilters();
+      this.setFilterListeners();
+    }
+    if (!locationSetByDrag) this.showAndHideSliders("#header-wrapper", "side-hide");
+    this.setState({ loadingState: false })
+  };
+
   render() {
-    const submitButton = async () => {
-      let location = await postCodeApiCall();
-
-      // If a valid location is returned, set lat and lng then call crime API. If location is invalid, display errors.
-      if (location.lat && location.lng) {
-        this.setState({
-          lat: location.lat,
-          lng: location.lng,
-          loadingState: true
-        });
-        this.callCrimeApi();
-      } else {
-        this.setResults([], location);
-      }
-    };
-
     return (
       <div id="page-wrapper">
         <Loading loading={this.state.loadingState} />
@@ -151,11 +124,18 @@ export class CrimeApp extends Component {
           />
           <div className="header-active">
             <div className="start-menu-inputs">
-              <PostCode />
+              <input
+                id="post-code"
+                type="text"
+                placeholder="Location"
+                ref={this.locationInputText}
+              />
               <Month />
               <Year />
             </div>
-            <SubmitButton buttonClick={submitButton} />
+            <div className="submit-button">
+              <button onClick={this.submitButton}>Submit</button>
+            </div>
           </div>
         </div>
         <div id="map" className="map">
@@ -194,14 +174,7 @@ export class CrimeApp extends Component {
           slideClass={"top-hide"}
           icon={faFilter}
         />
-        <div
-          className="errors-wrapper"
-          style={
-            this.state.errorState ? { display: "flex" } : { display: "none" }
-          }
-        >
-          <Errors errors={this.state.errorState} />
-        </div>
+        <Errors errors={this.state.errorState} />
         <div className="crime-stats-wrapper">
           <CrimeStats
             results={this.state.filteredResults}
@@ -214,5 +187,5 @@ export class CrimeApp extends Component {
   }
 }
 export default GoogleApiWrapper({
-  apiKey: key
+  apiKey: "AIzaSyCyNv5BOZZfdKO3VDhQCOA3Ufm8tv8rCF8"
 })(CrimeApp);

@@ -7,17 +7,16 @@ export const resetFilters = () => {
   }
 };
 
-export const postCodeApiCall = () => {
-  let postCode = document.querySelector("#post-code").value;
-  return fetch(
-    `https://maps.googleapis.com/maps/api/geocode/json?address=${postCode},uk&key=${key}`
-  )
-    .then(r => r.json())
-    .then(r => r.results[0].geometry.location)
-    .catch(e => {
-      console.log("Location API Error - Invalid Location ----->", e);
-      return "Location Error - Location is invalid. Remember only UK locations will return results.";
-    });
+export const fetchGeoLocation = location => {
+  return (
+    fetch(
+      "https://us-central1-nathan-downes-express-api.cloudfunctions.net/api/maps",
+      { method: "POST", body: `${ location }` }
+    )
+      .then(r => r.json())
+      // return search locations lat and lng and formatted address.
+      .then(r => (r.results[0].geometry.location))
+  );
 };
 
 export const policeApiCall = (lat, lng) => {
@@ -26,12 +25,15 @@ export const policeApiCall = (lat, lng) => {
   return fetch(
     `https://data.police.uk/api/crimes-street/all-crime?lat=${lat}&lng=${lng}&date=${year}-${month}`
   )
-    .then(r => r.json())
-    .catch(e => {
-      console.log("Police API Error - Caught Error Is ----->", e);
-      return "Crime API Error - Try an earlier month.";
-    });
+    .then(r => r.json());
 };
+
+export const getData = async (location) => {
+  const { lat, lng } = await fetchGeoLocation(location) 
+  const results = await policeApiCall (lat, lng)
+  console.log( lat,lng,results)
+  return ({lat, lng , results})
+}
 
 export const locationSort = (a, b) => {
   if (a.location.street.name < b.location.street.name) return -1;
