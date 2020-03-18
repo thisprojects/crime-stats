@@ -1,0 +1,64 @@
+@media only screen and (max-width: 600px) {
+
+  .submit-button  {
+    border: none;
+    margin: 0px;
+  }
+
+  .map {
+    height: 50%;
+  }
+
+  .start-menu-control-wrapper {
+    width: 50%;
+  }
+
+  input, select {
+    margin: 5px;
+  }
+
+  .results-table {
+    top: 49%;
+    height: 50%;
+  }
+
+  .no-results {
+    align-items: flex-start;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .total-crimes {
+    display: none;
+  }
+
+  .side-slide {
+    right: -40%;
+    padding: 10px;
+  }
+
+  .start-menu-inputs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filter-stub,
+  .top-slide {
+    left: 25%;
+  }
+
+}
+
+@media only screen and (max-width: 450px) {
+  .side-hide {
+    right: -94% !important;
+  }
+
+  .side-slide {
+    right: -20%;
+  }
+
+  .header-stub {
+    border: none;
+  }
+}

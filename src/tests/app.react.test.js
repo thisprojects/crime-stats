@@ -1,10 +1,10 @@
 import React from 'react';
-import { CrimeApp } from '../crime-stats.js';
+import App from '../App';
 import renderer from 'react-test-renderer';
 
 test('Main Component Matches Snapshot', () => {
   const component = renderer.create(
-    <CrimeApp />,
+    <App />,
   );
   let tree = component.toJSON();
   expect(tree).toMatchSnapshot();

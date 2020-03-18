@@ -1,0 +1,49 @@
+@media only screen and (max-width: 1025px) {
+  body {
+    font-size: 0.8em;
+  }
+
+  .side-hide {
+    right: -98% !important;
+  }
+
+  .header-stub svg {
+    display: block;
+    padding-bottom: 5px;
+  }
+
+  .filter-stub svg {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .header-stub p,
+  .filter-stub p {
+    display: none;
+  }
+
+  .top-slide {
+    width: 130px;
+    min-width: unset;
+    font-size: 0.7em;
+    top: 33px;
+  }
+
+  .header-stub {
+    color: lightgray;
+  }
+
+  .filter-stub {
+    width: 150px;
+    padding: 10px;
+    margin: 0 auto;
+    color: lightgray;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+
+  .stat-row {
+    flex-basis: 100%;
+  }
+}

@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filters Matches Snapshot 1`] = `
+<span
+  id="fake-cat"
+>
+  <label>
+    <input
+      defaultChecked={false}
+      name="fake-cat"
+      onChange={[Function]}
+      type="checkbox"
+      value="fake-cat"
+    />
+    <span
+      className="filter-item-wrapper"
+    >
+      <p>
+        fake-cat
+      </p>
+      <p>
+        1
+         Counts
+      </p>
+      <p>
+        0.07
+         %
+      </p>
+    </span>
+  </label>
+</span>
+`;

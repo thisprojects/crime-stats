@@ -1,3 +1,13 @@
+# UK Crime Statistics app
+
+## Where to find stuff:
+
+src/App.js <- root component  
+src/Scss <- styles  
+src/utils <- network requests  
+src/tests <- test written with Jest  
+src/Components <- 😁  
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
