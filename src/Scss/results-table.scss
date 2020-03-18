@@ -1,0 +1,63 @@
+.total-crimes {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 5px;
+  background-color: rgba(50, 50, 50, 0.9);
+  color: white;
+  padding: 5px;
+}
+
+.no-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0);
+  width: 100%;
+}
+
+.crime-stats {
+  p {
+  padding: 5px;
+  margin: 5px;
+  color: white;
+  }
+  .filter-item-wrapper p {
+    color: grey;
+  }
+
+}
+
+.results-table {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 30%;
+  position: absolute;
+  top: 69.9%;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid dimgray;
+  z-index: 10;
+  background-color: rgba(50, 50, 50, 0.9);
+}
+
+.result-item {
+  flex: 1 1 30%;
+  text-align: center;
+  padding: 5px;
+  color: white;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid lightgray;
+  flex-basis: 50%;
+  font-size: 0.7em;
+  padding: 15px 0px 5px 0px;
+}

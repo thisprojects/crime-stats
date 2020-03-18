@@ -1,0 +1,341 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Crime Stats Matches Snapshot 1`] = `
+Array [
+  <span
+    id="ccc Mock Category 1"
+  >
+    <label>
+      <input
+        defaultChecked={false}
+        name="ccc Mock Category 1"
+        onChange={[Function]}
+        type="checkbox"
+        value="ccc Mock Category 1"
+      />
+      <span
+        className="filter-item-wrapper"
+      >
+        <p>
+          ccc Mock Category 1
+        </p>
+        <p>
+          1
+           Counts
+        </p>
+        <p>
+          0.07
+           %
+        </p>
+      </span>
+    </label>
+  </span>,
+  <span
+    id="bbb Mock Category 2"
+  >
+    <label>
+      <input
+        defaultChecked={false}
+        name="bbb Mock Category 2"
+        onChange={[Function]}
+        type="checkbox"
+        value="bbb Mock Category 2"
+      />
+      <span
+        className="filter-item-wrapper"
+      >
+        <p>
+          bbb Mock Category 2
+        </p>
+        <p>
+          1
+           Counts
+        </p>
+        <p>
+          0.07
+           %
+        </p>
+      </span>
+    </label>
+  </span>,
+  <span
+    id="aaa Mock Category 3"
+  >
+    <label>
+      <input
+        defaultChecked={false}
+        name="aaa Mock Category 3"
+        onChange={[Function]}
+        type="checkbox"
+        value="aaa Mock Category 3"
+      />
+      <span
+        className="filter-item-wrapper"
+      >
+        <p>
+          aaa Mock Category 3
+        </p>
+        <p>
+          1
+           Counts
+        </p>
+        <p>
+          0.07
+           %
+        </p>
+      </span>
+    </label>
+  </span>,
+]
+`;
+
+exports[`Results Ui Matches Snapshot 1`] = `
+<div
+  className="crime-stats-wrapper"
+>
+  <div
+    className="crime-stats"
+  >
+    <div
+      className="total-crimes"
+    >
+      <p>
+        Total Crimes 
+        3
+      </p>
+      <input
+        name="sort"
+        onChange={[Function]}
+        type="radio"
+        value="location"
+      />
+      <p>
+        Location Sort
+      </p>
+      <input
+        name="sort"
+        onChange={[Function]}
+        type="radio"
+        value="outcome"
+      />
+      <p>
+        Outcome Sort
+      </p>
+    </div>
+    <div
+      className="results-table"
+    >
+      <div
+        className="stat-row"
+      >
+        <span
+          className="result-item"
+        >
+          ccc Mock Category 1
+        </span>
+        <span
+          className="result-item"
+        >
+          aaa Mock Street 1
+        </span>
+        <span
+          className="result-item"
+        >
+          ccc Mock Outcome 1
+        </span>
+      </div>
+      <div
+        className="stat-row"
+      >
+        <span
+          className="result-item"
+        >
+          bbb Mock Category 2
+        </span>
+        <span
+          className="result-item"
+        >
+          ccc Mock Street 2
+        </span>
+        <span
+          className="result-item"
+        >
+          bbb Mock Outcome 2
+        </span>
+      </div>
+      <div
+        className="stat-row"
+      >
+        <span
+          className="result-item"
+        >
+          aaa Mock Category 3
+        </span>
+        <span
+          className="result-item"
+        >
+          bbb Mock Street 3
+        </span>
+        <span
+          className="result-item"
+        >
+          aaa Mock Outcome 3
+        </span>
+      </div>
+    </div>
+    <div
+      className="filter-stub"
+      onClick={[Function]}
+    >
+      <p>
+        Filter
+      </p>
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-filter fa-w-16 "
+        data-icon="filter"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M487.976 0H24.028C2.71 0-8.047 25.866 7.058 40.971L192 225.941V432c0 7.831 3.821 15.17 10.237 19.662l80 55.98C298.02 518.69 320 507.493 320 487.98V225.941l184.947-184.97C520.021 25.896 509.338 0 487.976 0z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </div>
+    <div
+      className="top-slide top-hide"
+    >
+      <div
+        className="undefined"
+        onClick={[Function]}
+      >
+        <p />
+      </div>
+      <div
+        className="filter-wrapper"
+      >
+        <span
+          id="ccc Mock Category 1"
+        >
+          <label>
+            <input
+              defaultChecked={false}
+              name="ccc Mock Category 1"
+              onChange={[Function]}
+              type="checkbox"
+              value="ccc Mock Category 1"
+            />
+            <span
+              className="filter-item-wrapper"
+            >
+              <p>
+                ccc Mock Category 1
+              </p>
+              <p>
+                1
+                 Counts
+              </p>
+              <p>
+                33.33
+                 %
+              </p>
+            </span>
+          </label>
+        </span>
+        <span
+          id="bbb Mock Category 2"
+        >
+          <label>
+            <input
+              defaultChecked={false}
+              name="bbb Mock Category 2"
+              onChange={[Function]}
+              type="checkbox"
+              value="bbb Mock Category 2"
+            />
+            <span
+              className="filter-item-wrapper"
+            >
+              <p>
+                bbb Mock Category 2
+              </p>
+              <p>
+                1
+                 Counts
+              </p>
+              <p>
+                33.33
+                 %
+              </p>
+            </span>
+          </label>
+        </span>
+        <span
+          id="aaa Mock Category 3"
+        >
+          <label>
+            <input
+              defaultChecked={false}
+              name="aaa Mock Category 3"
+              onChange={[Function]}
+              type="checkbox"
+              value="aaa Mock Category 3"
+            />
+            <span
+              className="filter-item-wrapper"
+            >
+              <p>
+                aaa Mock Category 3
+              </p>
+              <p>
+                1
+                 Counts
+              </p>
+              <p>
+                33.33
+                 %
+              </p>
+            </span>
+          </label>
+        </span>
+      </div>
+    </div>
+    ;
+  </div>
+</div>
+`;
+
+exports[`Sort Crimes Matches Snapshot 1`] = `
+<div
+  className="total-crimes"
+>
+  <p>
+    Total Crimes 
+    1337
+  </p>
+  <input
+    name="sort"
+    onChange={[Function]}
+    type="radio"
+    value="location"
+  />
+  <p>
+    Location Sort
+  </p>
+  <input
+    name="sort"
+    onChange={[Function]}
+    type="radio"
+    value="outcome"
+  />
+  <p>
+    Outcome Sort
+  </p>
+</div>
+`;

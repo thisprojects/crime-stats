@@ -1,0 +1,38 @@
+.filter-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align:center;
+  align-items: center;
+  cursor: pointer;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gray;
+}
+
+.filter-stub {
+  width: 210px;
+  padding: 7px 20px 7px 20px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 60%;
+  background-color: rgba(50, 50, 50, 0.9);
+  z-index: 20;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+  border-radius: 2px;
+  cursor: pointer;
+  color: white;
+  svg {
+    display: none;
+  }
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + p {
+  color: #ccc;
+}
+input[type="checkbox"]:checked + .filter-item-wrapper p{
+  color: white;
+}

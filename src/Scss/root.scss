@@ -1,0 +1,67 @@
+@import './slider.scss';
+@import './start-menu.scss';
+@import './scrollbar.scss';
+@import './maps.scss';
+@import './filters.scss';
+@import './results-table.scss';
+@import './media-query-1025-800px.scss';
+@import './media-query-600-450px.scss';
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.dark-theme {
+  background-color: rgba(50, 50, 50, 0.9);
+}
+
+.show-loading {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  background-color: rgba(150, 150, 150, 0.95);
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  svg {
+    animation-duration: 1s;
+  }
+}
+
+.errors-wrapper {
+  position: absolute;
+  top: 40%;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  color: indianred;
+  background-color: lightgray;
+  width: 100%;
+  p {
+    padding: 20px;
+    margin: 0px;
+  }
+  h3 {
+    padding: 20px;
+  }
+}
+
+
+
+
