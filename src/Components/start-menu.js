@@ -6,7 +6,7 @@ export const generateYears = () => {
   let newDate = new Date();
   let currentYear = newDate.getFullYear();
   let years = [currentYear];
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 2; i++) {
     years.push(currentYear - (i + 1));
   }
   return years;
@@ -39,7 +39,7 @@ export const Month = ({ handleChange }) => (
 export const Year = ({ handleChange }) => (
   <div className="date-year">
     <span>Year</span>
-    <select id="year" defaultValue={ "2019" } onChange={ handleChange }>
+    <select id="year" defaultValue={ "2021" } onChange={ handleChange }>
       <GenerateOptions optionArray={ generateYears() } />
     </select>
   </div>
@@ -55,7 +55,7 @@ export const GenerateOptions = ({ optionArray: array }) =>
 class StartMenu extends Component {
   state = {
     month: "01",
-    year: "2019",
+    year: "2021",
     hideStartMenu: false
   };
 

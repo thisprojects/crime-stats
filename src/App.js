@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import StartMenu from "./Components/start-menu";
-import getData from "./utils/networkRequests";
+import getData from "./Utils/networkRequests";
 import ResultsUI from "./Components/results-ui";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,7 +12,7 @@ export const Loading = ({ loading }) =>
   loading && (
     <div className="show-loading">
       <h1>LOADING</h1>
-      <FontAwesomeIcon icon={ faSpinner } size="3x" spin />
+      <FontAwesomeIcon icon={faSpinner} size="3x" spin />
       <p>Major cities may take some time.</p>
     </div>
   );
@@ -33,16 +33,20 @@ export class CrimeApp extends Component {
     lng: 52,
     crimeResults: [],
     errorState: null,
-    loadingState: null
+    loadingState: null,
   };
 
   //Get results from dragged map marker location
   onMarkerDragEnd(evt) {
-    const location = `${ evt.latLng.lat()} ${evt.latLng.lng() }`;
+    const location = `${evt.latLng.lat()} ${evt.latLng.lng()}`;
     this.fetchCrimeResults(location);
   }
 
-  fetchCrimeResults = async (location, year = this.state.year, month = this.state.month) => {
+  fetchCrimeResults = async (
+    location,
+    year = this.state.year,
+    month = this.state.month
+  ) => {
     this.setState({ loadingState: true, errorState: false });
 
     let x = await getData(location, month, year).catch(() =>
@@ -56,7 +60,7 @@ export class CrimeApp extends Component {
         month: month,
         lat: lat,
         lng: lng,
-        crimeResults: results
+        crimeResults: results,
       });
     }
 
@@ -68,42 +72,42 @@ export class CrimeApp extends Component {
 
     return (
       <div>
-        <Loading loading={ loadingState } />
-        <StartMenu submit={ this.fetchCrimeResults } />
+        <Loading loading={loadingState} />
+        <StartMenu submit={this.fetchCrimeResults} />
         <div className="map">
           <Map
             initialCenter={{
               lat: 52.489471,
-              lng: -1.898575
+              lng: -1.898575,
             }}
             center={{
               lat,
-              lng
+              lng,
             }}
-            google={ this.props.google }
-            zoom={ 13 }
+            google={this.props.google}
+            zoom={13}
           >
             <Marker
-              icon={ icon }
+              icon={icon}
               position={{ lat, lng }}
-              draggable={ true }
-              onDragend={ (map, t, coord) => this.onMarkerDragEnd(coord) }
-              name={ "Current location" } 
+              draggable={true}
+              onDragend={(map, t, coord) => this.onMarkerDragEnd(coord)}
+              name={"Current location"}
             />
           </Map>
         </div>
-        <Errors errors={ errorState } />
+        <Errors errors={errorState} />
         <ResultsUI
-          key={ crimeResults }
-          defaultFilter={ [] }
-          results={ crimeResults }
-          applyLocationSort={ this.applyLocationSort }
-          applyOutcomeSort={ this.applyOutcomeSort }
+          key={crimeResults}
+          defaultFilter={[]}
+          results={crimeResults}
+          applyLocationSort={this.applyLocationSort}
+          applyOutcomeSort={this.applyOutcomeSort}
         />
       </div>
     );
   }
 }
 export default GoogleApiWrapper({
-  apiKey: ""
+  apiKey: "",
 })(CrimeApp);
