@@ -14,7 +14,7 @@
     "babel-jest": "^24.9.0",
     "google-maps-react": "^2.0.2",
     "load-google-maps-api": "^2.0.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-fontawesome": "^1.7.1",
